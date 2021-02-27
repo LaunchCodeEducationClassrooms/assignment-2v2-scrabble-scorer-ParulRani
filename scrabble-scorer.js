@@ -54,9 +54,9 @@ let vowelBonusScore=function(word)
   word=word.toLowerCase();
   for(let i=0;i<word.length;i++)
   {
-    if(word[i]==="a"|| word[i]==="i"|| word[i]==="o"|| word[i]==="u")
+    if(word[i]==="a"|| word[i]==="i"|| word[i]==="o"|| word[i]==="u" || word[i]=="e")
     {
-      score=score+3;
+      score+=3;
     }
     else
     score++;
