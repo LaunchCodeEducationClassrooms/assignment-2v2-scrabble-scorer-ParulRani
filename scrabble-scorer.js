@@ -83,18 +83,9 @@ for(let i=0;i<word.length;i++)
 };
 
 const scoringAlgorithms = [
-  {name:"Simple Score",description:"Each letter is worth 1 point.", scorerFunction:function(word1)
-  {
-    return simpleScore(word1);
-  }},
-  {name:"Bonus Vowels",description:"Vowels are 3 pts, consonants are 1 pt.",scorerFunction:function(word1)
-  {
-    return vowelBonusScore(word1);
-    }},
-  {name:"Scrabble",description:"The traditional scoring algorithm.",scorerFunction:function(word1)
-  {
-    return scrabbleScore(word1);
-    }}];
+  {name:"Simple Score",description:"Each letter is worth 1 point.", scorerFunction:simpleScore},
+  {name:"Bonus Vowels",description:"Vowels are 3 pts, consonants are 1 pt.",scorerFunction:vowelBonusScore},
+  {name:"Scrabble",description:"The traditional scoring algorithm.",scorerFunction:scrabbleScore}];
 
 function scorerPrompt() {
   console.log("Which scoring algorithm would you like to use?\n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system");
