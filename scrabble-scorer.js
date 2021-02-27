@@ -35,9 +35,7 @@ let word="";
 function initialPrompt() {
    console.log("Let's play some scrabble!");
     word=input.question("Enter a word: ");
-   //console.log(oldScrabbleScorer(word)); 
-   //scrabbleScore(word);
-   //scorerPrompt();  
+   
 };
 
 let simpleScore=function(word)
@@ -77,7 +75,7 @@ for(let i=0;i<word.length;i++)
   {
     if(word[i]==key)
     {
-      score+=Number(newPointStructure[key]);
+      score+=newPointStructure[key];
     }
   }
 }
@@ -88,8 +86,7 @@ const scoringAlgorithms = [
   {name:"Simple Score",description:"Each letter is worth 1 point.", scorerFunction:function(word1)
   {
     return simpleScore(word1);
-    }
-  },
+  }},
   {name:"Bonus Vowels",description:"Vowels are 3 pts, consonants are 1 pt.",scorerFunction:function(word1)
   {
     return vowelBonusScore(word1);
@@ -138,7 +135,7 @@ function transform(oldPointStructure) {
   
     for(let i=0;i<oldPointStructure[key].length;i++){
       index=(oldPointStructure[key][i]).toLowerCase();
-      newStruct[index]=key;
+      newStruct[index]=Number(key);
     }
     
   }
