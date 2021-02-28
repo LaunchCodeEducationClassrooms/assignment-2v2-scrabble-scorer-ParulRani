@@ -66,7 +66,6 @@ let vowelBonusScore=function(word)
 
 let scrabbleScore=function(word)
 {
-newPointStructure=transform(oldPointStructure);
 let score=0;
 word=word.toLowerCase();
 for(let i=0;i<word.length;i++)
@@ -83,9 +82,9 @@ for(let i=0;i<word.length;i++)
 };
 
 const scoringAlgorithms = [
-  {name:"Simple Score",description:"Each letter is worth 1 point.", scorerFunction:simpleScore},
-  {name:"Bonus Vowels",description:"Vowels are 3 pts, consonants are 1 pt.",scorerFunction:vowelBonusScore},
-  {name:"Scrabble",description:"The traditional scoring algorithm.",scorerFunction:scrabbleScore}];
+  Object({name:"Simple Score",description:"Each letter is worth 1 point.",scoringFunction: simpleScore}),
+  Object({name:"Bonus Vowels",description:"Vowels are 3 pts, consonants are 1 pt.",scoringFunction: vowelBonusScore}),
+  Object({name:"Scrabble",description:"The traditional scoringalgorithm.",scoringFunction: scrabbleScore})];
 
 function scorerPrompt() {
   console.log("Which scoring algorithm would you like to use?\n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system");
@@ -132,10 +131,7 @@ function transform(oldPointStructure) {
   }
   return newStruct;
 };
-
-//let newPointStructure = {a:1,e:1,i:1,o:1,u:1,l:1,n:1,r:1,s:1,t:1,
-//d:2,g:2,b:3,c:3,m:3,p:3,f:4,h:4,v:4,w:4,m:4,k:5,j:8,x:8,q:10,z:10};
-let newPointStructure={};
+let newPointStructure=transform(oldPointStructure);
 function runProgram() {
    initialPrompt();
    scorerPrompt();
